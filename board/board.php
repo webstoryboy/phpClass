@@ -36,6 +36,11 @@
                 <div class="board__search">
                     <div class="left">
                         <!-- * 총 <em>1111</em>건의 게시물이 등록되어 있습니다. -->
+<?php
+    function msg($alert){
+        echo "<em>{$alert}</em>건의 게시물이 등록되어 있습니다.";
+    }
+?>
                     </div>
                     <div class="right">
                         <form action="boardSearch.php" name="boardSearch" method="get">
@@ -74,7 +79,6 @@
                         </thead>
                         <tbody>
 <?php
-
     if(isset($_GET['page'])){
         $page = (int) $_GET['page'];
     } else {
@@ -110,6 +114,8 @@
                 echo "<td>".$info['boardView']."</td>";
                 echo "</tr>";
             }
+        } else {
+            echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";
         }
     }
 ?>
